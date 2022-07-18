@@ -1,5 +1,7 @@
 package com.ebbyware.tasklist.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.*;
@@ -44,6 +46,20 @@ public class Goal {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public void setTasks(Collection<Task> tasks) {
+		this.tasks = new ArrayList<Task>();
+		tasks.forEach(task -> addTask(task));
+	}
+	
+	public Iterable<Task> getTasks() {
+		return tasks;
+	}
+	
+	public void addTask(Task task) {
+		this.tasks.add(task);
+		task.setGoal(this);
 	}
 
 	@Override

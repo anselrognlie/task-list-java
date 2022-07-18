@@ -62,6 +62,14 @@ public class Task {
 	public boolean isComplete() {
 		return this.completedAt != null;
 	}
+	
+	public Goal getGoal() {
+		return goal;
+	}
+
+	public void setGoal(Goal goal) {
+		this.goal = goal;
+	}
 
 	@Override
 	public String toString() {
